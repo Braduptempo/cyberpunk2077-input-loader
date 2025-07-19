@@ -31,6 +31,8 @@
 	<blend from="__ANY__" to="DeviceControl"			event="AXIS_RESET_TO_ZERO_NO_WAIT" />
 	<blend from="__ANY__" to="VehicleDriveMountedWeapons"			event="BUTTON_RELEASE_IF_TO_DOESNT_CONTAIN" />
 	<blend from="__ANY__" to="VehicleDriveMountedWeapons"			event="AXIS_RESET_TO_ZERO_NO_WAIT" />
+	<blend from="__ANY__" to="VehicleCinematicCamera"				event="AXIS_RESET_TO_ZERO_NO_WAIT" />
+	<blend from="__ANY__" to="DelamainTaxi"							event="AXIS_RESET_TO_ZERO_NO_WAIT" />
 	<blend from="Exploration" to="VehicleDrive"		event="AXIS_RESET_TO_ZERO_NO_WAIT" />
 	<blend from="Exploration" to="VehicleDrive"		event="BUTTON_RELEASE_IF_TO_DOESNT_CONTAIN" />
 	<blend from="Exploration" to="VehiclePassenger"	event="AXIS_RESET_TO_ZERO_NO_WAIT" />
@@ -177,6 +179,7 @@
 		<action name="TakeScreenshot_HiRes_Stadia"		map="PhotoModeTakeScreenshot_HiRes_Stadia" />
 
 		<action name="ExitPhotoMode" 					map="ExitPhotoModeButton"		priority="-1" />
+        <action name="LockCameraPhotoMode" 				map="LockCameraButton"		    priority="-1" />
 		<action name="PhotoMode_ShowHideUI"				map="PhotoMode_ShowHideUI"		priority="-1" />
 		
 		<action name="PhotoMode_CraneUp"				map="PhotoMode_CraneUp_Axis" />
@@ -201,6 +204,7 @@
 		<action name="click"							map="PhotoMode_Click"			priority="-1" />
 		<action name="PhotoMode_ScrollUp"				map="MouseWheelUp"				priority="-1" />
 		<action name="PhotoMode_ScrollDown"				map="MouseWheelDown"			priority="-1" />
+		<action name="ResetCurrentLight" 				map="ResetCurrentLightButton" 	priority="-1" />
 
 		<action name="PhotoMode_SaveSettings"			map="PhotoMode_SaveSettings"	priority="-1" />
 		<action name="PhotoMode_LoadSettings"			map="PhotoMode_LoadSettings"	priority="-1" />
@@ -222,7 +226,7 @@
 		<action name="CloseWheel" 				map="ExitWheel_Button" priority="-1" />
 		<action name="UI_PreviousAbility" 		map="PrevItem_Button" priority="-1" />
 		<action name="UI_NextAbility" 			map="NextItem_Button" priority="-1" />
-		<action name="CameraAim"		 		map="Hit2_Button" />
+		<action name="CameraAim"		 		map="RangedADS_Button" />
 		<action name="ExitWheel"		 		map="ExitWheel_Button" />
 		<action name="SelectWheelItem"		 	map="SelectWheelItem_Button" />
 	</context>
@@ -260,7 +264,8 @@
 		<action name="TagButton"		 	map="Tag_Button" /> <!-- HACK FOR VS -->
 		<action name="IconicCyberware"		map="IconicCyberware_Button" />
 		<action name="context_help" 		map="UI_ContextHelp" priority="-1" />
-		<action name="CameraAim"		 	map="Hit2_Button" priority="-1" />
+		<action name="twintone_buy" 		map="UI_TwintoneBuy" priority="-1" />
+		<action name="CameraAim"		 	map="RangedADS_Button" priority="-1" />
 	</context>
 	
 	<context name="UI_QuickHackPanel_TargetCycling" >
@@ -322,7 +327,7 @@
 		<action name="ToggleVehCamera"		map="VehicleCameraToggle" />
 		<action name="ZoomIn"				map="ZoomIn_Button"/>
 		<action name="ZoomOut"				map="ZoomOut_Button"/>
-		<action name="CameraAim"			map="Hit2_Button" />
+		<action name="CameraAim"			map="RangedADS_Button" />
 		<action name="Zoom" 				map="MouseWheel" />
 		<action name="UETExit" 				map="UETExit_Button" />		
 		<action name="UETChangePose" 		map="UETChangePose_Button" />		
@@ -367,7 +372,7 @@
 		<action name="IconicCyberware"	  	map="IconicCyberware_Button" />
 		<action name="TurnX"				map="LeftX_Axis_Vehicle" />
 		<action name="Exit"					map="ExitVehicle_Button" />
-		<action name="QuickExit"			map="QuickExit_Button"  />
+		<action name="QuickExit"			map="ExitVehicle_Button"  />
 		<action name="UseConsumable"		map="UseConsumable_Button" />
 		<action name="TagButton"			map="Tag_Button" />
 		<action name="ToggleVehCamera"		map="VehicleCameraToggle" />
@@ -392,7 +397,7 @@
 		<action name="UseConsumable"		map="UseConsumable_Button" />
 		<action name="TurnX"				map="LeftX_Axis_Vehicle" />
 		<action name="Exit"					map="ExitVehicle_Button" />
-		<action name="QuickExit"			map="QuickExit_Button"  />
+		<action name="QuickExit"			map="ExitVehicle_Button"  />
 		<action name="CycleLights"			map="Vehicle_CycleLights" />
 		<action name="RangedAttack"			map="VehicleDriverCombatRangedAttack_Button" />
 		<action name="Reload"				map="Reload_Button" />
@@ -421,12 +426,13 @@
 		<action name="VehicleInverseCameraToggle"	map="VehicleInverseCameraToggle_Button"/>
 		<action name="VehicleCameraReset"	map="VehicleCameraReset_Button"/>
 		<action name="Exit"					map="ExitVehicle_Button" />
-		<action name="QuickExit"			map="QuickExit_Button"  />
+		<action name="QuickExit"			map="ExitVehicle_Button"  />
 		<action name="CycleLights"			map="Vehicle_CycleLights" />
 		<action name="Handbrake"			map="Vehicle_Handbrake" />
 		<action name="ZoomIn"				map="ZoomIn_Button"/>
 		<action name="ZoomOut"				map="ZoomOut_Button"/>
 		<action name="VehicleHorn" 			map="Vehicle_Horn" />
+		<action name="HoldAutodrive"      map="Vehicle_Autodrive" />
 		<action name="EnterCombatMode"		map="SwitchItem_Button" />
 	</context>
 	
@@ -434,7 +440,68 @@
 		<include name="VehicleDriveBase" />
 		<include name="Items" />
 	</context>
-	
+
+	<context name="VehicleAutodrive" >
+		<include name="CameraMovement" />
+		<include name="VisionActions" />
+		<include name="UIExploration" />
+		<include name="PhotoMode" />
+		<include name="QuickLoadAndSave" />
+		<include name="VehicleAuxillary" />
+
+		<action name="Accelerate"			map="Acceleration_Axis" />
+		<action name="Decelerate"			map="Deceleration_Axis" />
+		<action name="TurnX"				map="LeftX_Axis_Vehicle" />
+		<action name="LeanFB"				map="LeftY_Axis_Vehicle" />
+		<action name="RockFB"				map="LeftY_Axis_Vehicle_RockFB" />
+		<action name="ToggleVehCamera"		map="VehicleCameraToggle" />
+		<action name="VehicleInverseCameraToggle"	map="VehicleInverseCameraToggle_Button"/>
+		<action name="Exit"					map="ExitVehicle_Button" />
+		<action name="QuickExit"			map="ExitVehicle_Button"  />
+		<action name="CycleLights"			map="Vehicle_CycleLights" />
+		<action name="ZoomIn"				map="ZoomIn_Button"/>
+		<action name="ZoomOut"				map="ZoomOut_Button"/>
+		<action name="VehicleHorn" 			map="Vehicle_Horn" />
+		<action name="EnterCombatMode"		map="SwitchItem_Button" />
+		<action name="HoldAutodrive"      	map="Vehicle_Autodrive" />
+		<include name="Items" />
+
+		<action name="ToggleAutodrive"      map="Vehicle_Autodrive" />
+		<action name="HoldCinematicCamera"	map="VehicleCameraToggle" />
+	</context>
+
+	<transition action="ToggleVehCamera">
+		<blend from="__ANY__" to="VehicleCinematicCamera" event="NONE" />
+	</transition>
+
+	<context name="VehicleCinematicCamera" >
+		<include name="UIExploration" />
+		<include name="PhotoMode" />
+		<include name="QuickLoadAndSave" />
+		<action name="VehicleSiren" 					map="Vehicle_Siren" />
+		<action name="VehicleInsideWheel"				map="VehicleInsideWheel_Button"/>
+
+		<action name="CycleLights"			map="Vehicle_CycleLights" />
+		<action name="VehicleHorn" 			map="Vehicle_Horn" />
+
+		<action name="HoldCinematicCamera"	map="VehicleCameraToggle" />
+	</context>
+
+	<context name="DelamainTaxi" >
+		<include name="CameraMovement" />
+		<include name="VisionActions" />
+		<include name="UIExploration" />
+		<include name="PhotoMode" />
+
+		<action name="ToggleVehCamera"		map="VehicleCameraToggle" />
+		<action name="VehicleInverseCameraToggle"	map="VehicleInverseCameraToggle_Button"/>
+		<action name="Exit"					map="ExitVehicle_Button" />
+		<action name="ZoomIn"				map="ZoomIn_Button"/>
+		<action name="ZoomOut"				map="ZoomOut_Button"/>
+		<action name="VehicleInsideWheel"	map="VehicleInsideWheel_Button"/>
+		<action name="HoldCinematicCamera"	map="VehicleCameraToggle" />
+	</context>
+
 	<context name="VehicleDriveMountedWeapons" >
 		<include name="VehicleDriveBase" />
 		
@@ -500,7 +567,7 @@
 		<action name="TurnX"				map="LeftX_Axis_Vehicle" />
 		<action name="LeanFB"				map="LeftY_Axis_Vehicle" />
 		<action name="RockFB"				map="LeftY_Axis_Vehicle_RockFB" />
-		<action name="Exit"				map="ExitVehicle_Button" />
+		<action name="Exit"					map="ExitVehicle_Button" />
 		<action name="CycleLights"			map="Vehicle_CycleLights" />
 		<action name="Handbrake"			map="Vehicle_Handbrake" />
 		<action name="VehicleHorn" 			map="Vehicle_Horn" />
@@ -554,10 +621,9 @@
 		<action name="Handbrake"			map="Vehicle_Handbrake" />
 		<action name="Reload"				map="Reload_Button" />
 		<action name="Exit"					map="ExitVehicle_Button" />
-		<action name="QuickExit"			map="QuickExit_Button"  />
+		<action name="QuickExit"			map="ExitVehicle_Button"  />
 		<action name="CycleLights"			map="Vehicle_CycleLights" />
-		<action name="VehicleHorn" 			map="Vehicle_Horn" />
-		<action name="VehicleSiren" 				map="Vehicle_Siren" />
+		<action name="VehicleSiren" 		map="Vehicle_Siren" />
 		<action name="MeleeAttack"			map="VehicleDriverCombatRangedAttack_Button" />
 		<action name="MeleeBlock"			map="VehicleDriverCombatRangedADS_Button" />
 		
@@ -649,7 +715,7 @@
 		<include name="VisionActions" />
 		<include name="InteractionActions" />
 		<action name="Exit" 				map="ExitVehicle_Button" />
-		<action name="CameraAim"		 	map="Hit2_Button" />
+		<action name="CameraAim"		 	map="RangedADS_Button" />
 		<action name="back"					map="back" priority="-1" />
 	</context>
 	
@@ -671,10 +737,16 @@
 		<include name="VisionActions" />
 		<include name="UIToggles" /> 	
 		<include name="PhotoMode" />
-		<action name="SceneFastForward"		map="SceneFastForward_Button" />
-		<action name="Choice1"				map="Choice1" 					priority="-1" />
-		<action name="NotificationOpen" 	map="Notification_Button"		priority="-1" />
-		<action name="NotificationOpenSMS" 	map="NotificationSMS_Button"	priority="-1" />
+		<action name="SceneFastForward"			map="SceneFastForward_Button" />
+		<action name="Choice1"					map="Choice1" 					priority="-1" />
+		<action name="NotificationOpen" 		map="Notification_Button"		priority="-1" />
+		<action name="NotificationOpenSMS" 		map="NotificationSMS_Button"	priority="-1" />
+		<action name="NotificationOpenLvlup"	map="NotificationLvlup_Button"	priority="-1" />
+		<action name="ChoiceApply"				map="DialogConfirm"				Priority="-2" />
+		<action name="OpenQuickHackPanel"		map="OpenQuickHackPanel_Button" />
+		<action name="UI_Apply" 				map="Apply_Button" 				priority="-1" />
+		<action name="TakeScreenshot"			map="PhotoModeTakeScreenshot" />
+		<action name="minigame_select" 			map="minigame_select" 			priority="-1" />
 	</context>
 
 	<context name="SettingsGeneral">
@@ -717,6 +789,7 @@
 		<action name="ShootSecondary"		map="Vehicle_Shoot_Secondary" />
 		<action name="ShootTertiary"		map="Vehicle_Shoot_Tertiary" />
 		<action name="VehicleHorn" 			map="Vehicle_Horn" />
+		<action name="VehicleAutodrive" 			map="Vehicle_Autodrive" />
 	</context>
 
 	<context name="SettingsUI">
@@ -738,14 +811,15 @@
 		<include name="UI_DPad" />
 		<include name="UI_Keyboard_Numbers" />
 		
-		<action name="click"				map="device_click"				priority="-1" />
-		<action name="NotificationOpen" 	map="Notification_Button"		priority="-1" />
-		<action name="NotificationOpenSMS" 	map="NotificationSMS_Button"	priority="-1" />
+		<action name="click"					map="device_click"				priority="-1" />
+		<action name="NotificationOpen" 		map="Notification_Button"		priority="-1" />
+		<action name="NotificationOpenSMS" 		map="NotificationSMS_Button"	priority="-1" />
+		<action name="NotificationOpenLvlup"	map="NotificationLvlup_Button"	priority="-1" />
 	</context>
 
 	<context name="Camera" >
 		<include name="CameraMovement" />
-		<action name="CameraAim"		 	map="Hit2_Button" />
+		<action name="CameraAim"		 	map="RangedADS_Button" />
 	</context>
 		
 	<context name="CameraMovement" >
@@ -894,8 +968,9 @@
 	<!-- VEHICLE ACTIONS -->
 	
 	<context name="VehicleAuxillary" >
-			<action name="VehicleSiren" 				map="Vehicle_Siren" />
-			<action name="VehicleInsideWheel"		map="VehicleInsideWheel_Button"/>
+			<action name="VehicleSiren" 					map="Vehicle_Siren" />
+			<action name="VehicleInsideWheel"				map="VehicleInsideWheel_Button"/>
+			<action name="VehicleVisualCustomization"		map="VehicleVisualCustomization_Button"/>			
 	</context>
 
 	<!-- UI -->
@@ -922,6 +997,10 @@
 	</transition>
 	
 	<transition action="NotificationOpenSMS">
+		<blend from="__ANY__" to="__ANY__" event="NONE" />
+	</transition>
+
+	<transition action="NotificationOpenLvlup">
 		<blend from="__ANY__" to="__ANY__" event="NONE" />
 	</transition>
 
@@ -980,9 +1059,11 @@
 		<action name="UI_Skip" 				map="skip_loading" priority="-1" />
 	</context>
 
+
+
 	<context name="UIShared">
 		<include name="UI" />
-		<include name="UINotifications" />
+		<include name="UINotifications" />	
 		<action name="back"											map="back"										priority="-1" />
 		<action name="change_account"								map="change_account"							priority="-1" />
 		<action name="left_button"									map="left_button"								priority="-1" />
@@ -1032,6 +1113,7 @@
 		<action name="world_map_menu_open_quest_static"				map="world_map_menu_open_quest_static"			priority="-1" />
 		<action name="world_map_menu_zoom_to_mappin"				map="world_map_menu_zoom_to_mappin"				priority="-1" />
 		<action name="world_map_menu_open_quest"					map="world_map_menu_open_quest"					priority="-1" />
+		<action name="world_map_menu_confirm_delamain_taxi"			map="world_map_menu_confirm_delamain_taxi"		priority="-1" />
 		<action name="world_map_menu_debug_teleport"				map="world_map_menu_debug_teleport"				priority="-1" />
 		<action name="proceed" 										map="proceed_popup" 							priority="-1" />
 		<action name="secondaryAction" 								map="action2_popup" 							priority="-1" />
@@ -1050,8 +1132,12 @@
 		<action name="controller_settings" 							map="controller_settings" 						priority="-1" />
 		<action name="run_benchmark" 								map="run_benchmark" 							priority="-1" />
 		<action name="edit_safezones" 								map="edit_safezones" 							priority="-1" />
-		<action name="character_preview_rotate" 					map="character_preview_rotate" 					priority="-1" />
+		<action name="character_preview_rotate" 					map="character_preview_rotate" 					priority="-1" />		
+		<action name="character_preview_randomize" 					map="character_preview_randomize" 				priority="-1" />
 		<action name="system_notification_confirm" 					map="system_notification_confirm" 				priority="-1" />
+		<action name="delete_screenshot"							map="delete_screenshot"							priority="-1" />
+		<action name="system_quit_game"								map="system_quit_game"							priority="-1" />
+		<action name="system_accept_eula"							map="system_accept_eula"						priority="-1" />
 		<!-- Issue reporter, so it's available during main menu and in in game menus -->
 		<action name="ReportIssue" map="ReportIssue_Button" priority="-1" />
 	</context>
@@ -1114,7 +1200,44 @@
 		<action name="UI_MinigameFakeCamera"						map="UI_MinigameFakeCamera"						priority="-1" />
 	</context>
 
+	<context name="UIVehicleVisualCustomization">
+		<action name="UI_vehicle_customization_select" 				map="UI_vehicle_customization_select_Button" 				priority="-5" />
+		<action name="UI_vehicle_customization_confirm" 			map="UI_vehicle_customization_confirm_Button" 				priority="-5" />
+		<action name="UI_vehicle_customization_save" 				map="UI_vehicle_customization_save_Button" 					priority="-5" />
+		<action name="UI_vehicle_customization_delete" 				map="UI_vehicle_customization_delete_Button" 				priority="-5" />
+		<action name="UI_vehicle_customization_swap" 				map="UI_vehicle_customization_swap_Button" 					priority="-5" />
+		<action name="UI_vehicle_customization_slider_up" 			map="UI_vehicle_customization_slider_up_Button" 			priority="-5" />		
+		<action name="UI_vehicle_customization_slider_down" 		map="UI_vehicle_customization_slider_down_Button" 			priority="-5" />		
+		<action name="UI_vehicle_customization_slider_change_left"  map="UI_vehicle_customization_slider_change_left_Button" 	priority="-5" />		
+		<action name="UI_vehicle_customization_slider_change_right" map="UI_vehicle_customization_slider_change_right_Button" 	priority="-5" />	
+		<action name="UI_vehicle_customization_fake_slider_change"	map="UI_vehicle_customization_fake_slider_change_Button" 	priority="-5" />	
+		<action name="UI_vehicle_customization_fake_slider_value"	map="UI_vehicle_customization_fake_slider_value_Button" 	priority="-5" />		
+		<action name="UI_vehicle_customization_mode_next" 			map="UI_vehicle_customization_mode_prev_Button" 			priority="-5" />
+		<action name="UI_vehicle_customization_mode_prev" 			map="UI_vehicle_customization_mode_next_Button" 			priority="-5" />	
+		<action name="UI_vehicle_customization_cancel" 				map="UI_vehicle_customization_cancel_Button" 				priority="-5" />
+		<action name="UI_vehicle_customization_reset" 				map="UI_vehicle_customization_reset_Button" 				priority="-5" />			
+		<action name="UI_vehicle_customization_tab_left" 			map="UI_vehicle_customization_tab_left_Button" 	   			priority="-5" />			
+		<action name="UI_vehicle_customization_tab_right" 			map="UI_vehicle_customization_tab_right_Button" 			priority="-5" />			
+	</context>
+
+	<context name="UIVehicleVisualCustomizationOverride">
+		<action name="UI_vehicle_customization_override_proceed" 	map="UI_vehicle_customization_override_proceed_Button" 	   	priority="-5" />			
+		<action name="UI_vehicle_customization_override_cancel" 	map="UI_vehicle_customization_override_cancel_Button" 		priority="-5" />			
+	</context>
+
+	<context name="UIFrameSwitcher">
+		<action name="UI_smart_frame_controller_zoom_in"	map="UI_smart_frame_controller_zoom_in_Button"		priority="-5" />
+		<action name="UI_smart_frame_controller_zoom_out"	map="UI_smart_frame_controller_zoom_out_Button"		priority="-5" />
+		<action name="UI_smart_frame_remove"				map="UI_smart_frame_remove_Button"					priority="-5" />
+		<action name="UI_smart_frame_confirm"				map="UI_smart_frame_confirm_Button"					priority="-5" />
+		<action name="UI_smart_frame_close"					map="UI_smart_frame_close_Button"					priority="-5" />
+		<action name="UI_smart_frame_move"					map="UI_smart_frame_move_Axis"						priority="-5" />
+	</context>
+
 	<context name="UINotifications">
+		<include name="UIVehicleVisualCustomization" />	
+		<include name="UIVehicleVisualCustomizationOverride" />
+		<include name="UIFrameSwitcher" />
 		<action name="click"										map="click_popup"								priority="-3" />
 		<action name="click_hold"									map="click_popup"								priority="-1" />
 		<action name="proceed"										map="proceed_popup"								priority="-1" />
@@ -1154,6 +1277,7 @@
 		<action name="mouse_wheel"									map="MouseWheel"								priority="-1" />
 		<action name="mouse_left"									map="MouseLeft"									priority="-1" />
 		<action name="context_help"									map="UI_ContextHelp"							priority="-1" />
+		<action name="twintone_buy"									map="UI_TwintoneBuy"							priority="-1" />
 		<action name="close_tutorial"								map="close_tutorial"							priority="-1" />
 		<action name="system_notification_confirm" 					map="system_notification_confirm" 				priority="-1" />
 		<action name="popup_maxQuantity" 							map="popup_maxQuantity"							priority="-1" />
@@ -1182,6 +1306,11 @@
 		<action name="phone_open_journal"							map="phone_open_journal"						priority="-1" />
 		<action name="radio_volume_up"								map="radio_volume_up"							priority="-1" />
 		<action name="radio_volume_down"							map="radio_volume_down"							priority="-1" />
+		<action name="popup_navigate_up" 							map="up_button" 								priority="-1" />
+		<action name="popup_navigate_down" 							map="down_button" 								priority="-1" />
+		<action name="popup_navigate_left" 							map="left_button" 								priority="-1" />
+		<action name="popup_navigate_right" 						map="right_button" 								priority="-1" />
+		<action name="delete_screenshot"							map="delete_screenshot"							priority="-1" />
 	</context>
 	
 
@@ -1212,6 +1341,7 @@
 		<action name="shooter_jump" 								map="shooter_minigame_jump" 					priority="-1" />
 		<action name="shooter_prone" 								map="shooter_minigame_prone" 					priority="-1" />
 		<action name="shooter_switchWeapon" 						map="shooter_minigame_switchWeapon" 			priority="-1" />
+		<action name="FakeLookUp"									map="Fake_Look_Up"								priority="-1" />
 	</context>
 
 	<context name="UITankMinigame">
@@ -1261,6 +1391,9 @@
 	<hold action="VehicleInsideWheel"			timeout="0.3" />
 	<hold action="WeaponWheel"					timeout="0.3" />
 	<hold action="VehicleHornHold"				timeout="0.25" />
+	<hold action="VehicleVisualCustomization"	timeout="1.0" />	
+	<hold action="HoldAutodrive"				timeout="0.5" />	
+	<hold action="HoldCinematicCamera"			timeout="0.5" />	
 	<hold action="IconicCyberware"				timeout="0.2" />
 	<hold action="CycleLights"					timeout="0.25" />
 	<hold action="VehicleInverseCameraToggle"		timeout="0.01" />
@@ -1290,6 +1423,7 @@
 	<hold action="OpenMapMenu"					timeout="0.4" />
 	<hold action="disassemble_item"				timeout="0.4" />
 	<hold action="craft_item"					timeout="0.8" />
+	<hold action="favourite_item"				timeout="0.4" />
 	<hold action="use_item"						timeout="0.4" />
 	<hold action="upgrade_attribute"			timeout="0.4" />
 	<hold action="upgrade_attribute_button"		timeout="0.4" />
@@ -1302,8 +1436,14 @@
 	<hold action="PhotoMode_CameraMouseRotation"	timeout="10.0" />
 	<hold action="PhotoMode_SaveSettings"		timeout="0.6" />
 	<hold action="PhotoMode_LoadSettings"		timeout="0.6" />
+	<hold action="LockCameraPhotoMode"			timeout="2.0" />
 
 	<hold action="EmptyHands" 					timeout="0.2" />
+
+	<hold action="UI_vehicle_customization_delete"		timeout="0.8" />
+	<hold action="twintone_buy"					timeout="0.5" />
+
+	<hold action="system_quit_game" 			timeout="1.0" />
 
 	<!-- Prototype -->
 	<hold action="AlternativeWorkspotModeDebug"	timeout="0.8"/>
@@ -1314,9 +1454,10 @@
 	<hold action="UI_DPadDown"					timeout="0.25"/>
 	<hold action="UI_DPadWeapons"				timeout="0.25"/>
 
-	<hold action="world_map_menu_track_quest"		timeout="0.5" />
-	<hold action="world_map_menu_debug_teleport"	timeout="0.6" />
-	<hold action="world_map_menu_fast_travel"		timeout="0.8" />
+	<hold action="world_map_menu_confirm_delamain_taxi"	timeout="1.0" />
+	<hold action="world_map_menu_track_quest"			timeout="0.5" />
+	<hold action="world_map_menu_debug_teleport"		timeout="0.6" />
+	<hold action="world_map_menu_fast_travel"			timeout="0.8" />
 
 	<!-- REPEAT ACTIONS -->
 	<repeat action="popup_moveDown"					delay="0.25" delta="0.05"/>
@@ -1329,6 +1470,10 @@
 	<repeat action="navigate_up"					delay="0.2" delta="0.1"/>
 	<repeat action="navigate_left"					delay="0.2" delta="0.1"/>
 	<repeat action="navigate_right"					delay="0.2" delta="0.1"/>
+	<repeat action="popup_navigate_down"			delay="0.2" delta="0.1"/>
+	<repeat action="popup_navigate_up"				delay="0.2" delta="0.1"/>
+	<repeat action="popup_navigate_left"			delay="0.2" delta="0.1"/>
+	<repeat action="popup_navigate_right"			delay="0.2" delta="0.1"/>
 	<repeat action="option_switch_next_settings"	delay="0.2" delta="0.1"/>
 	<repeat action="option_switch_prev_settings"	delay="0.2" delta="0.1"/>
 	<repeat action="radio_volume_up"				delay="0.2" delta="0.1"/>
@@ -1800,6 +1945,10 @@
 		<event name="BUTTON_RELEASED" />
 	</acceptedEvents>
 
+	<acceptedEvents action="NotificationOpenLvlup" >
+		<event name="BUTTON_RELEASED" />
+	</acceptedEvents>
+
 	<acceptedEvents action="dpad_right" >
 		<event name="BUTTON_PRESSED" />
 		<event name="BUTTON_RELEASED" />
@@ -1930,7 +2079,10 @@
 	</acceptedEvents>
 
 	<acceptedEvents action="favourite_item" >
+		<event name="BUTTON_PRESSED" />
 		<event name="BUTTON_RELEASED" />
+		<event name="BUTTON_HOLD_PROGRESS" />
+		<event name="BUTTON_HOLD_COMPLETE" />
 	</acceptedEvents>
 
 	<acceptedEvents action="toggle_comparison_tooltip" >
@@ -2006,6 +2158,13 @@
 		<event name="BUTTON_HOLD_PROGRESS" />
 		<event name="BUTTON_HOLD_COMPLETE" />
 	</acceptedEvents>
+	
+	<acceptedEvents action="LockCameraPhotoMode" >
+		<event name="BUTTON_PRESSED" />
+		<event name="BUTTON_RELEASED" />
+		<event name="BUTTON_HOLD_PROGRESS" />
+		<event name="BUTTON_HOLD_COMPLETE" />
+	</acceptedEvents>
 
 	<acceptedEvents action="left_stick_y_scroll_up" >
 		<event name="BUTTON_PRESSED" />
@@ -2048,6 +2207,18 @@
 	</acceptedEvents>
 
 	<acceptedEvents action="ReturnToSniperNest" >
+		<event name="BUTTON_PRESSED" />
+		<event name="BUTTON_RELEASED" />
+	</acceptedEvents>
+
+	<acceptedEvents action="system_quit_game" >
+		<event name="BUTTON_PRESSED" />
+		<event name="BUTTON_RELEASED" />
+		<event name="BUTTON_HOLD_PROGRESS" />
+		<event name="BUTTON_HOLD_COMPLETE" />
+	</acceptedEvents>
+	
+	<acceptedEvents action="system_accept_eula" >
 		<event name="BUTTON_PRESSED" />
 		<event name="BUTTON_RELEASED" />
 	</acceptedEvents>

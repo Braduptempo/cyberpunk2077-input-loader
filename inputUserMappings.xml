@@ -195,7 +195,12 @@
 		<button id="IK_T" overridableUI="openNotifiation"/>
 		<button id="IK_Pad_DigitDown" />
     </mapping>
-	
+
+	<mapping name="NotificationLvlup_Button" type="Button" >        
+		<button id="IK_T" overridableUI="openNotifiation"/>
+		<button id="IK_Pad_DigitRight" />
+    </mapping>
+
 	<mapping name="popup_action" type="Button" SIEJADependent="true" >
 		<button id="IK_Space" />
 		<button id="IK_Pad_A_CROSS" />
@@ -918,6 +923,11 @@
         <button id="IK_Pad_DigitRight" />
 		<button id="IK_Q" overridableUI="vehicleToggleCam"/>
     </mapping>
+
+	<mapping name="Vehicle_Autodrive" type="Button" >
+        <button id="IK_Pad_LeftThumb" />
+        <button id="IK_G" overridableUI="vehicleAutodrive"/>
+    </mapping>
 	
 	<mapping name="Enter_Combat" type="Button" >
         <button id="IK_Pad_Y_TRIANGLE" />
@@ -1000,11 +1010,6 @@
 	</mapping>
 
 	<mapping name="ExitVehicle_Button" type="Button" >
-		<button id="IK_F" overridableUI="exitVehicle"/>
-		<button id="IK_Pad_B_CIRCLE" />
-	</mapping>
-	
-	<mapping name="QuickExit_Button" type="Button" >
 		<button id="IK_F" overridableUI="exitVehicle"/>
 		<button id="IK_Pad_B_CIRCLE" />
 	</mapping>
@@ -1448,6 +1453,16 @@
 		<button id="IK_Pad_A_CROSS"/>
 		<button id="IK_Enter"/>
 	</mapping>
+	
+	<mapping name="system_quit_game" type="Button" SIEJADependent="true" >
+		<button id="IK_Escape"/>
+		<button id="IK_Pad_B_CIRCLE"/>
+	</mapping>
+	
+	<mapping name="system_accept_eula" type="Button" SIEJADependent="true" >
+		<button id="IK_Enter"/>
+		<button id="IK_Pad_X_SQUARE"/>
+	</mapping>
 
 	<mapping name="change_account" type="Button" SIEJADependent="true" >
 		<button id="IK_Pad_Y_TRIANGLE"/>
@@ -1730,6 +1745,11 @@
 		<button id="IK_Pad_X_SQUARE"/>
 		<button id="IK_C"/>
 	</mapping>
+
+	<mapping name="world_map_menu_confirm_delamain_taxi" type="Button" SIEJADependent="true" >
+		<button id="IK_Pad_X_SQUARE"/>
+		<button id="IK_F" overridableUI="selectChoiceUI"/>
+	</mapping>
 	
 	<mapping name="world_map_menu_debug_teleport" type="Button" SIEJADependent="true" >
 		<button id="IK_Pad_X_SQUARE"/>
@@ -1989,6 +2009,7 @@
 	
 	<mapping name="edit_safezones" type="Button" SIEJADependent="true" >
 		<button id="IK_Pad_Start"/>
+		<button id="IK_PS4_OPTIONS"/>
 		<button id="IK_H"/>
 	</mapping>
 
@@ -2056,6 +2077,11 @@
 		<button id="IK_Escape" />
 		<button id="IK_N" overridableUI="photoMode"/>
 		<button id="IK_Pad_B_CIRCLE" />
+	</mapping>
+    
+    <mapping name="LockCameraButton" type="Button">
+		<button id="IK_T" overridableUI="photoMode"/>
+		<button id="IK_Pad_Y_TRIANGLE" />
 	</mapping>
 	
 	<mapping name="PhotoMode_ShowHideUI" type="Button" >

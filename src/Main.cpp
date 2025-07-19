@@ -40,12 +40,22 @@ bool in_array(const std::string &value, const std::vector<std::string> &array) {
   return std::find(array.begin(), array.end(), value) != array.end();
 }
 
-std::vector<std::string> valid_inputUserMappings = {"mapping", "buttonGroup",
-                                                    "pairedAxes", "preset"};
+std::vector<std::string> valid_inputUserMappings = {
+  "mapping", 
+  "buttonGroup",
+  "pairedAxes", 
+  "preset"
+};
 
 std::vector<std::string> valid_inputContexts = {
-    "blend",  "context", "hold",          "multitap",
-    "repeat", "toggle",  "acceptedEvents"};
+  "blend",  
+  "context", 
+  "hold",          
+  "multitap",
+  "repeat", 
+  "toggle",  
+  "acceptedEvents"
+};
 
 pugi::xml_document inputContextsOriginal;
 pugi::xml_document inputUserMappingsOriginal;
